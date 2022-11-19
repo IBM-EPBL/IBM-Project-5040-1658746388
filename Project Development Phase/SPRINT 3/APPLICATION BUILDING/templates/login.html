@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='login-style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <title>Login landing page</title>
+</head>
+<body>
+    <section class="side">
+        <img src="/static/img.svg" alt="Image">
+    </section>
+
+    <section class="main">
+        <div class="login-container">
+            <p class="title">Welcome back</p>
+            <div class="separator"></div>
+            <p class="welcome-message">Please, provide login credential to proceed and have access to all our services</p>
+
+            <form class="login-form" action="{{url_for('login')}}" method="POST">
+                <div class="form-control">
+                    <input type="text" placeholder="Username" name="username">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-control">
+                    <input type="password" placeholder="Password" name="password">
+                    <i class="fas fa-lock"></i>
+                </div>
+				<input type="submit" class="submit" value="Sign In"></br>
+            </form>
+            <p class="welcome-message">Else Sign In With</p>
+            <div class="api-container">
+                <form action="{{url_for('login_with_google')}}" method="POST" class="login-form">
+                    <button type="submit">
+                        <div class="google-btn">
+                            <div class="google-icon-wrapper">
+                                <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                            </div>
+                        </div>
+                    </button>
+                </form>
+                <div class="github-btn">
+                    <div class="google-icon-wrapper">
+                        <a href="{{ url_for('github_login') }}">
+                            <img src="{{ url_for('static', filename='/images/github-logo.png') }}" 
+                            width="41px" height="42px" alt="Github logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+				<p class="welcome-message">New User? <a href="{{url_for('register')}}">Register</a></p>
+			</div>
+        </div>
+    </section>
+    
+</body>
+</html>

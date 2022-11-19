@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windmill App Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home-style.css') }}">
+</head>
+<body>
+    <header>
+        <a href="{{url_for('dashboard')}}" class="logo"><span>Windmill</span>App</a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="fas fa-bars"></label>
+        <nav class="navbar">
+            <a href="{{url_for('predict')}}">Predict</a>
+            <a href="{{url_for('logout')}}">Logout</a>
+        </nav>
+    </header>
+    <section class="home" id="home">
+        <div class="content">
+            <h3>best windmill app <span>showcase</span></h3>
+            <p>Wind energy is obtained when the energy or power from the wind can be used to generate electricity. This proves to be a clean and sustainable way to provide a source of power. Wind turbines are generally used to harness the power of the wind. This converts the kinetic energy into electric energy. Since wind energy is primarily dependent on weather conditions, accurate predictions of the energy to be produced gives us an added advantage in managing the supply and demand</p>
+            <a href="{{url_for('predict')}}" class="btn">Predict</a>
+        </div>
+        <div class="image">
+            <img src="{{ url_for('static', filename='/images/home-img.png') }}" />
+        </div>
+    </section>
+    <section class="features" id="features">
+        <h1 class="heading"> user history </h1>
+        <div class="box-container" style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <th>Count</th>
+                    <th>Search Date</th>
+                    <th>Search City</th>
+                    <th>Theoretical_Power_Curve (KWh)</th>
+                    <th>Wind Speed (m/s)</th>
+                    <th>Output</th>
+                </thead>
+                <tbody>
+                    {% for xAll in xAlls %}
+                        <tr>
+                            <td>{{ xAll.COUNT }}</td>
+                            <td>{{ xAll.SEARCH_DATE }}</td>
+                            <td>{{ xAll.SEARCH_CITY }}</td>
+                            <td>{{ xAll.THEORETICAL }}</td>
+                            <td>{{ xAll.WIND_SPEED }}</td>
+                            <td>{{ xAll.POWER_OUTPUT }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

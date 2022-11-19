@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: dance
+Version: 0.0.1
+Summary: A cross-platform desktop application development library
+Home-page: https://github.com/Aareon/dance
+Author: Aareon Sullivan
+Author-email: askully13@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: setuptools (>=30.0.0)
+
+# dance
+A cross-platform desktop application development library
+
+
